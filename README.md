@@ -136,6 +136,13 @@ Ensure the model exists before running.
 
 ---
 
+Note:
+CNN.model must be created first by running Recognition_1.ipynb and Recognition_2.ipynb.
+This step cannot be executed before model training.
+
+Also, the multipart detection logic uses a prediction threshold (e.g., prediction[0] > 0.5).
+If using a multi-class CNN model, this notebook may require modification.
+
 # Model Training Workflow
 
 These notebooks are inside `Model-Creation/`
@@ -195,6 +202,10 @@ For prediction on new images.
 - `CNN.model`
 - Update test image path inside notebook
 
+Important:
+The class folder structure inside the Labelled Dataset must remain the same as during training.
+Changing folder order can result in incorrect label predictions.
+
 ### What It Does
 - Loads trained model  
 - Predicts character class  
@@ -214,6 +225,8 @@ For prediction on new images.
 
 ## If Recognizing from Raw Inscription Image
 
+Ensure CNN.model already exists (model must be trained first).
+
 1. `1 Image_Preprocessing.ipynb`  
 2. `2 character_segmentation.ipynb`  
 3. (Optional) `Multipart_Concatenation.ipynb`  
@@ -221,7 +234,7 @@ For prediction on new images.
 
 ---
 
-# ⚙ Important Notes
+# Important Notes
 
 - Update all placeholder paths like:
   ```
